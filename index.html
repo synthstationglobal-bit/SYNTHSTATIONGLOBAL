@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYNTHSTATION GLOBAL - Entrega Ultra Rápida</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Orbitron:wght@700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #000000;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section - Fullscreen Impact */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 2rem;
+            background: #ffffff;
+        }
+        
+        /* Símbolos decorativos flotantes */
+        .symbol {
+            position: absolute;
+            font-size: clamp(3rem, 8vw, 6rem);
+            opacity: 0.08;
+            color: #000000;
+            animation: symbolFloat 20s infinite ease-in-out;
+            pointer-events: none;
+            font-weight: 900;
+        }
+        
+        @keyframes symbolFloat {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(20px, -30px) rotate(5deg);
+            }
+            50% {
+                transform: translate(-10px, -60px) rotate(-5deg);
+            }
+            75% {
+                transform: translate(-30px, -30px) rotate(3deg);
+            }
+        }
+        
+        .symbol-1 { top: 10%; left: 5%; animation-delay: 0s; }
+        .symbol-2 { top: 15%; right: 8%; animation-delay: 2s; }
+        .symbol-3 { top: 45%; left: 10%; animation-delay: 4s; font-size: clamp(2rem, 6vw, 4rem); }
+        .symbol-4 { top: 50%; right: 5%; animation-delay: 6s; }
+        .symbol-5 { bottom: 20%; left: 15%; animation-delay: 3s; }
+        .symbol-6 { bottom: 15%; right: 12%; animation-delay: 5s; font-size: clamp(2rem, 6vw, 4rem); }
+        .symbol-7 { top: 30%; left: 3%; animation-delay: 1s; font-size: clamp(2.5rem, 7vw, 5rem); }
+        .symbol-8 { top: 60%; right: 3%; animation-delay: 7s; font-size: clamp(2.5rem, 7vw, 5rem); }
+        .symbol-9 { top: 75%; left: 8%; animation-delay: 4s; }
+        .symbol-10 { top: 25%; right: 15%; animation-delay: 8s; font-size: clamp(2rem, 6vw, 4rem); }
+        
+        /* Logo principal con impacto */
+        .logo-container {
+            text-align: center;
+            margin-bottom: 2rem;
+            z-index: 10;
+        }
+        
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: 0.05em;
+            color: #000000;
+            position: relative;
+            display: inline-block;
+            animation: logoAppear 1s ease-out;
+        }
+        
+        @keyframes logoAppear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 4px;
+            background: #000000;
+        }
+        
+        /* Tagline impactante */
+        .tagline {
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            color: #404040;
+            text-align: center;
+            margin-bottom: 4rem;
+            z-index: 10;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            font-weight: 400;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.3s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Hero visual centrado en velocidad */
+        .speed-hero {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin: 3rem 0 4rem 0;
+            z-index: 10;
+            flex-wrap: wrap;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.6s forwards;
+        }
+        
+        .speed-circle {
+            position: relative;
+            width: clamp(200px, 30vw, 350px);
+            height: clamp(200px, 30vw, 350px);
+            border-radius: 50%;
+            background: #f5f5f5;
+            border: 6px solid #000000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        .speed-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3.5rem, 10vw, 6rem);
+            font-weight: 900;
+            color: #000000;
+            line-height: 1;
+        }
+        
+        .speed-label {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            color: #404040;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-weight: 600;
+        }
+        
+        /* Beneficios clave */
+        .benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            min-width: 70px;
+            background: #000000;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .benefit-item:hover .benefit-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .benefit-text {
+            text-align: left;
+        }
+        
+        .benefit-title {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 0.3rem;
+        }
+        
+        .benefit-desc {
+            font-size: clamp(0.85rem, 1.5vw, 1rem);
+            color: #606060;
+            font-weight: 400;
+        }
+        
+        /* CTA prominente */
+        .cta-section {
+            margin-top: 4rem;
+            z-index: 10;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.9s forwards;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 2rem 5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #ffffff;
+            background: #000000;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.15em;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #404040;
+            transition: left 0.4s ease;
+            z-index: 0;
+        }
+        
+        .cta-button:hover::before {
+            left: 0;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+        }
+        
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-arrow {
+            position: relative;
+            z-index: 1;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-button:hover .cta-arrow {
+            transform: translateX(8px);
+        }
+        
+        /* Trust indicators */
+        .trust-line {
+            margin-top: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            color: #606060;
+            font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+            font-weight: 500;
+            z-index: 10;
+        }
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        
+        .trust-icon {
+            font-size: 1.3rem;
+        }
+        
+        /* Símbolos adicionales en sección inferior */
+        .symbol-bottom {
+            position: absolute;
+            bottom: 5%;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            opacity: 0.1;
+            color: #000000;
+            font-weight: 900;
+        }
+        
+        .symbol-b1 { left: 20%; }
+        .symbol-b2 { right: 25%; }
+        .symbol-b3 { left: 40%; }
+        .symbol-b4 { right: 45%; }
+        
+        @media (max-width: 768px) {
+            .speed-hero {
+                flex-direction: column;
+                gap: 3rem;
+            }
+            
+            .benefit-item {
+                gap: 1rem;
+            }
+            
+            .cta-button {
+                padding: 1.5rem 3rem;
+            }
+            
+            .trust-line {
+                gap: 1.5rem;
+            }
+            
+            .symbol {
+                font-size: clamp(2rem, 6vw, 4rem) !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Símbolos decorativos flotantes -->
+    <div class="symbol symbol-1">⚡</div>
+    <div class="symbol symbol-2">★</div>
+    <div class="symbol symbol-3">◆</div>
+    <div class="symbol symbol-4">⚡</div>
+    <div class="symbol symbol-5">▲</div>
+    <div class="symbol symbol-6">●</div>
+    <div class="symbol symbol-7">✦</div>
+    <div class="symbol symbol-8">◉</div>
+    <div class="symbol symbol-9">▶</div>
+    <div class="symbol symbol-10">✧</div>
+    
+    <section class="hero">
+        <div class="logo-container">
+            <div class="logo">SYNTHSTATION GLOBAL</div>
+        </div>
+        
+        <p class="tagline">Tu tienda. Tu ciudad. Entrega inmediata.</p>
+        
+        <div class="speed-hero">
+            <div class="speed-circle">
+                <div class="speed-number">30</div>
+                <div class="speed-label">MINUTOS</div>
+            </div>
+            
+            <div class="benefits">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🚀</div>
+                    <div class="benefit-text">
+                        <div class="benefit-title">Velocidad Extrema</div>
+                        <div class="benefit-desc">De tu pedido a tu puerta en tiempo récord</div>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">📍</div>
+                    <div class="benefit-text">
+                        <div class="benefit-title">Tracking en Tiempo Real</div>
+                        <div class="benefit-desc">Sigue tu pedido minuto a minuto</div>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-text">
+                        <div class="benefit-title">Garantía de Frescura</div>
+                        <div class="benefit-desc">Productos en perfectas condiciones</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <a href="https://wa.me/51967047742?text=Hola!%20Quiero%20hacer%20un%20pedido%20ahora" class="cta-button" target="_blank">
+                <span>HACER PEDIDO AHORA</span>
+                <span class="cta-arrow">→</span>
+            </a>
+            
+            <div class="trust-line">
+                <div class="trust-item">
+                    <span class="trust-icon">✓</span>
+                    <span>Entrega garantizada</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">✓</span>
+                    <span>Pago al recibir</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">✓</span>
+                    <span>Sin costos ocultos</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Símbolos adicionales abajo -->
+        <div class="symbol-bottom symbol-b1">◆</div>
+        <div class="symbol-bottom symbol-b2">★</div>
+        <div class="symbol-bottom symbol-b3">✦</div>
+        <div class="symbol-bottom symbol-b4">▲</div>
+    </section>
+</body>
+</html>
